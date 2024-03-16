@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h1 style="display:inline-block">Coletado : {{ collected}} |</h1>
+        <h1 style="display:inline-block">Disponível: {{ available }}</h1>
+        <hr>
+        <button v-if="!endGame" @click="collect">Coletar</button>
+
+        <h2 v-if="endGame">Parabéns ! Você coletou tudo !!</h2>
+
+        <button v-if="endGame" @click="newGame">Jogar Novamente</button>
+    </div>
+
+    <script src="treino1.js"></script>
+</body>
+
+</html>
