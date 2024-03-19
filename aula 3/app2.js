@@ -13,6 +13,17 @@ const app = Vue.createApp({
     methods: {
         toggleShowBooks() {
             this.showBooks = !this.showBooks
+        },
+        changeFav(book){
+            book.isFav = !book.isFav
+            console.log(this.books)
+            //if I manipulate the object passed, the element in html will react
+            //changing the book argument object, will change this.books objects 
+        }
+    },
+    computed: {
+        filteredBooks(){
+            return this.books.filter((book) => book.isFav)
         }
     }
 })

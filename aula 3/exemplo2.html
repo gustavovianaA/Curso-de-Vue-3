@@ -49,17 +49,26 @@
     <h1>Hello, Vue :)</h1>
 
     <div id="app">
+        <!-- computed property-->
+        <p>{{ filteredBooks }}</p>
+
         <!-- attribute binding -->
         <!-- v-bind:href or :href -->
         <a :href="url" target="_blank">best website ever: {{ url }}</a>
 
         <div v-if="showBooks">
             <ul>
-                <li v-for="book in books" :class="{ fav: book.isFav }">
+                <li @click="changeFav(book)" v-for="book in books" :class="{ fav: book.isFav }">
                     <img :src="book.img" :alt="book.title">
                     <h3>{{ book.title }}</h3>
                     <p>{{ book.author }}</p>
 
+                </li>
+            </ul>
+            <h3>Seus Favoritos</h3>
+            <ul>
+                <li v-for="book in filteredBooks">
+                    {{ book.title }}
                 </li>
             </ul>
 
